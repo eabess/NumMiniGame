@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 // import AppLoading from "expo-app-loading";
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from "react-native";
 
 import Colors from "./constants/colors";
 import GameScreen from "./screens/GameScreen";
@@ -73,25 +74,28 @@ export default function App() {
   }
 
   return (
-    <LinearGradient 
-      colors={[Colors.primary700, Colors.accent500]}
-      style={styles.rootScreen}
-    >
-      <ImageBackground 
-        source={require('./assets/images/bgJester7.jpg')}
-        resizeMode='cover'
+    <>
+      <StatusBar style='light' />
+      <LinearGradient 
+        colors={[Colors.primary700, Colors.accent500]}
         style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
       >
-        {/* {screen} */}
-        <SafeAreaView 
-          style={styles.rootScreen} 
-          onLayout={onLayoutRootView} 
+        <ImageBackground 
+          source={require('./assets/images/bgJester7.jpg')}
+          resizeMode='cover'
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
         >
-          {screen}
-        </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+          {/* {screen} */}
+          <SafeAreaView 
+            style={styles.rootScreen} 
+            onLayout={onLayoutRootView} 
+          >
+            {screen}
+          </SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
